@@ -4,8 +4,8 @@ class ClicksController < ApplicationController
     cookie_name = ENV['COOKIE_NAME'] || 'SHTR'
 
     # parse request
-    request_string  = URI.parse(request.original_fullpath)
-    path            = request_string.path
+    path            = request.original_fullpath
+    request_string  = URI.parse(path)
     slug            = path.split('/').second
     visitor_hash    = cookies[cookie_name]
     request_params  = CGI.parse(request_string.query.to_s)

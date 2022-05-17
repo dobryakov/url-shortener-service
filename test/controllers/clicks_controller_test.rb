@@ -7,6 +7,10 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
   test "default" do
 
     assert_raise do
+      get '/'
+    end
+
+    assert_raise do
       get '/xxx'
     end
 
@@ -53,6 +57,19 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
     assert_not_equal click3, click4
     # but same visitor
     assert_equal     click3.visitor, click4.visitor
+
+    # visitor with get params (query)
+    get '/zzz/bla-bla/?abc=def&ooo=ppp'
+    assert_response :redirect
+    assert_equal response.headers['Location'], location2
+    click5 = Click.last
+
+    # different clicks
+    assert_not_equal click4, click5
+    # but same visitor
+    assert_equal     click4.visitor, click5.visitor
+
+    assert_equal click5.clicked_url, '/zzz/bla-bla/?abc=def&ooo=ppp'
 
   end
 
