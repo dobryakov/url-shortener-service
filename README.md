@@ -18,7 +18,7 @@ Check the `test\controllers\clicks_controller_test.rb` for the examples.
 
 Use `rake test` for testing.
 
-# Basisc idea and data model
+# Basic idea and data model
 
 The basic entity is Link. It stores the each single link to translate from short url to long.
 
