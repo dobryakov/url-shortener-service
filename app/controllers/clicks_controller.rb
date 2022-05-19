@@ -6,7 +6,7 @@ class ClicksController < ApplicationController
     # parse request
     path            = request.original_fullpath
     request_string  = URI.parse(path)
-    slug            = path.split('/').second
+    slug            = request_string.path.split('/').second
     visitor_hash    = cookies[cookie_name]
     request_params  = CGI.parse(request_string.query.to_s)
 
