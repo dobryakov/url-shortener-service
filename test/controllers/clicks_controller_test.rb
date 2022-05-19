@@ -83,6 +83,9 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
     link = Link.create(url: location)
     assert_not_empty link.slug
 
+    link = Link.create(slug: 'ZzZ', url: location)
+    assert_equal link.slug, 'zzz'
+
   end
 
 end
