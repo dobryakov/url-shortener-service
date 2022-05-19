@@ -73,4 +73,16 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "link without the pre-defined slug should have generated slug" do
+
+    location = 'http://www.google.com/'
+
+    link = Link.create(slug: 'yyy', url: location)
+    assert_equal link.slug, 'yyy'
+
+    link = Link.create(url: location)
+    assert_not_empty link.slug
+
+  end
+
 end

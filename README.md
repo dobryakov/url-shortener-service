@@ -9,3 +9,11 @@ No web interface included. Use `rails c` for the beginning. In real highload usa
 * Link.create(slug: 'asdf', url: 'http://www.myhomepage.com/')
 * Open in browser `yourdomain.com/asdf`. You should be redirected to `http://www.myhomepage.com/`.
 * Check the `Click.all` and `Visitor.all` in the rails console to get the data.
+
+# Examples
+
+Check the `test\controllers\clicks_controller_test.rb` for the examples.
+
+# Testing
+
+Use `rake test` for testing.
